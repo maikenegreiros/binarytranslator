@@ -10,6 +10,24 @@ let binaryToDecimal = binary => {
     return decimal;
 }
 
+let standardizeBinary = binary => {
+    let binaryArr = binary.split("")
+    while (binaryArr.length < 8) {
+        binaryArr.unshift(0)
+    }
+    return binaryArr.join("")
+}
+
+let decimalToBinary = decimal => {
+    let binaries = []
+    do {
+        binaries.unshift(decimal % 2)
+        decimal = Math.trunc(decimal/2)
+    } while (decimal !== 1)
+    binaries.unshift(1)
+    return binaries.join("")
+}
+
 let binaryToText = str => {
     let binarys = str.split(" ");
     return binarys.map(binary => {
@@ -18,4 +36,11 @@ let binaryToText = str => {
     }).join("");
 }
 
-export default binaryToText
+let textToBinary = str => {
+    return str.split("").map(char => {
+        let binary = decimalToBinary(char.charCodeAt(0))
+        return standardizeBinary(binary)
+    }).join(" ")
+}
+
+export {binaryToText, textToBinary}
