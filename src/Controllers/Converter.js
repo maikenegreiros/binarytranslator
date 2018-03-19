@@ -1,4 +1,4 @@
-import binaryToText from "../Models/BinaryConverter.js"
+import {binaryToText, textToBinary} from "../Models/BinaryConverter.js"
 
 window.addEventListener("DOMContentLoaded", () => {
     let $ = document.querySelector.bind(document)
@@ -7,5 +7,11 @@ window.addEventListener("DOMContentLoaded", () => {
         e.preventDefault()
         let text = binaryToText(textBox.value)
         console.log(text)
+    })
+    let textBox2 = $(".text-box2")
+    $(".form2").addEventListener("submit", e => {
+        e.preventDefault()
+        let binary = textToBinary(textBox2.value)
+        console.log(binary)
     })
 })
