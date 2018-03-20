@@ -1,12 +1,9 @@
 import {binaryToText, textToBinary} from "../Models/BinaryConverter.js"
 
-window.addEventListener("DOMContentLoaded", () => {
-    let $ = document.querySelector.bind(document)
-    let form = $(".form")
-
-    form.addEventListener("submit", e => {
+let formManager = (formTarget, view) => {
+    formTarget.addEventListener("submit", e => {
         e.preventDefault()
-        let data = new FormData(form)
+        let data = new FormData(formTarget)
         let convertTo = data.get("convert-to")
         let output;
         if (convertTo === "Binary") {
@@ -15,6 +12,8 @@ window.addEventListener("DOMContentLoaded", () => {
             output = binaryToText(data.get("text"))
         }
 
-        $('.output-container').innerHTML = `<p>${output}</p>`
+        view(output)
     })
-})
+}
+
+export {formManager}
