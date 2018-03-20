@@ -10,12 +10,17 @@
 
         <form class="form" action="index.html" method="post">
             <textarea class="text-box" name="text" rows="8" cols="80"></textarea>
-            <label for="">To Text</label>
-            <input type="radio" name="convert-to" value="Text">
-            <label for="">To Binary</label>
-            <input type="radio" name="convert-to" value="Binary" checked>
+            <br>
+            <input id="optionToText" type="radio" name="convert-to" value="Text">
+            <label for="optionToText">To Text</label>
+
+            <input id="optionToBinary" type="radio" name="convert-to" value="Binary" checked>
+            <label for="optionToBinary">To Binary</label>
+            <br>
             <input type="submit" name="" value="Convert">
         </form>
+
+        <hr>
 
         <div class="output-container"></div>
     </body>
