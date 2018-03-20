@@ -3,23 +3,20 @@
     <head>
         <meta charset="utf-8">
         <title>Binary Converter</title>
-        <script type="module" src="src/Controllers/Converter.js" charset="utf-8"></script>
+        <script type="module" src="src/Controllers/Converter.js"></script>
     </head>
     <body>
         <h1>Binary Converter</h1>
 
-        <h2>Binary to Text</h2>
         <form class="form" action="index.html" method="post">
-            <label for="">Type here</label>
-            <textarea class="text-box" name="name" rows="8" cols="80"></textarea>
+            <textarea class="text-box" name="text" rows="8" cols="80"></textarea>
+            <label for="">To Text</label>
+            <input type="radio" name="convert-to" value="Text">
+            <label for="">To Binary</label>
+            <input type="radio" name="convert-to" value="Binary" checked>
             <input type="submit" name="" value="Convert">
         </form>
 
-        <h2>Text to Binary</h2>
-        <form class="form2" action="index.html" method="post">
-            <label for="">Type here</label>
-            <textarea class="text-box2" name="name" rows="8" cols="80"></textarea>
-            <input type="submit" name="" value="Convert">
-        </form>
+        <div class="output-container"></div>
     </body>
 </html>
