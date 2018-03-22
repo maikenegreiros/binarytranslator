@@ -1,10 +1,11 @@
 import $ from "./Helpers/selectorElementDom.js"
-import { formManager } from "./Controllers/formManager.js"
+import { modeConverter } from "./Controllers/modeConverter.js"
 import { textArea } from "./Views/textArea.js"
+import { form } from "./Views/form.js"
 
 let main = () => {
-    let form = $(".form");
-    formManager(form, textArea);
+    let formTarget = $(".form")
+    modeConverter(new form(formTarget), textArea)
 }
 
 window.addEventListener("DOMContentLoaded", main)
