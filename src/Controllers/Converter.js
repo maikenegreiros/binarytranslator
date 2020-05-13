@@ -1,20 +1,31 @@
-import {binaryToText, textToBinary} from "../Models/BinaryConverter.js"
+import { binaryToText, textToBinary } from "../Models/BinaryConverter.js";
 
 window.addEventListener("DOMContentLoaded", () => {
-    let $ = document.querySelector.bind(document)
-    let form = $(".form")
+  const $ = document.querySelector.bind(document);
+  const form = $(".form");
+  const textBox = $(".text-box");
+  const toTextRadio = $("#to-text");
+  const toBinaryRadio = $("#to-binary");
 
-    form.addEventListener("submit", e => {
-        e.preventDefault()
-        let data = new FormData(form)
-        let convertTo = data.get("convert-to")
-        let output;
-        if (convertTo === "Binary") {
-            output = textToBinary(data.get("text"))
-        } else {
-            output = binaryToText(data.get("text"))
-        }
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    convert(new FormData(form));
+  });
 
-        $('.output-container').innerHTML = `<p>${output}</p>`
-    })
-})
+  textBox.addEventListener("keyup", () => {
+    convert(new FormData(form));
+  });
+
+  function convert(data) {
+    let output;
+    const convertTo = data.get("convert-to");
+    const content = data.get("text");
+    if (convertTo === "Binary") {
+      output = textToBinary(content);
+    } else {
+      output = binaryToText(content);
+    }
+
+    $(".output-container").innerHTML = `<p>${output}</p>`;
+  }
+});

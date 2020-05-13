@@ -1,22 +1,55 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Binary Converter</title>
-        <script type="module" src="src/Controllers/Converter.js"></script>
-    </head>
-    <body>
-        <h1>Binary Converter</h1>
+  <head>
+    <meta charset="utf-8" />
+    <title>Binary Converter</title>
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="src/css/style.css" />
+    <script type="module" src="src/Controllers/Converter.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>Binary/Text Converter</h1>
+      </header>
 
-        <form class="form" action="index.html" method="post">
-            <textarea class="text-box" name="text" rows="8" cols="80"></textarea>
-            <label for="">To Text</label>
-            <input type="radio" name="convert-to" value="Text">
-            <label for="">To Binary</label>
-            <input type="radio" name="convert-to" value="Binary" checked>
-            <input type="submit" name="" value="Convert">
-        </form>
+      <form class="form">
+        <div class="form-group">
+          <input
+            class="mode-radio"
+            type="radio"
+            name="convert-to"
+            value="Text"
+            id="to-text"
+          />
+          <label for="to-text">To Text</label>
 
-        <div class="output-container"></div>
-    </body>
+          <input
+            class="mode-radio"
+            type="radio"
+            name="convert-to"
+            value="Binary"
+            id="to-binary"
+            checked
+          />
+          <label for="to-binary">To Binary</label>
+        </div>
+
+        <div class="form-group">
+          <textarea
+            class="text-box form-control"
+            name="text"
+            rows="8"
+            cols="80"
+            placeholder="Type your text here"
+          ></textarea>
+        </div>
+      </form>
+
+      <div class="output-container"></div>
+    </div>
+  </body>
 </html>
